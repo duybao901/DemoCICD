@@ -13,7 +13,6 @@
   <ItemGroup>
     <Folder Include="DependencyInjection\Extensions\" />
     <Folder Include="DependencyInjection\Options\" />
-    <Folder Include="Abstractions\" />
     <Folder Include="Behaviors\" />
     <Folder Include="UserCases\V2\" />
   </ItemGroup>
