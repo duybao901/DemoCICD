@@ -1,0 +1,6 @@
+@DemoCICD.API_HostAddress = http://localhost:5037
+
+GET {{DemoCICD.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
