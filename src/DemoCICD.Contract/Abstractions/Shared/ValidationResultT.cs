@@ -1,4 +1,4 @@
-﻿namespace DemoCICD.Domain.Shared;
+﻿namespace DemoCICD.Contract.Abstractions.Shared;
 public class ValidationResult<T> : Result<T>, IValidationResult
 {
     public Error[] Errors { get; }

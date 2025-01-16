@@ -1,4 +1,4 @@
-﻿using DemoCICD.Domain.Shared;
+﻿using DemoCICD.Contract.Abstractions.Shared;
 using FluentValidation;
 using MediatR;
 

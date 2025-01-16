@@ -1,4 +1,4 @@
-﻿namespace DemoCICD.Domain.Shared;
+﻿namespace DemoCICD.Contract.Abstractions.Shared;
 public class Result
 {
     protected internal Result(bool isSuccess, Error error)

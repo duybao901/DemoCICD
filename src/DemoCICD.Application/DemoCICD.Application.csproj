@@ -7,11 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DemoCICD.Contract\DemoCICD.Contract.csproj" />
     <ProjectReference Include="..\DemoCICD.Domain\DemoCICD.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DependencyInjection\Extensions\" />
+    <Folder Include="Abstractions\" />
     <Folder Include="DependencyInjection\Options\" />
     <Folder Include="UserCases\V2\" />
   </ItemGroup>

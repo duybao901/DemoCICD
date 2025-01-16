@@ -1,5 +1,4 @@
-﻿using DemoCICD.Application.Abstractions;
-using DemoCICD.Domain.Shared;
+﻿using DemoCICD.Contract.Abstractions.Shared;
 
 namespace DemoCICD.Application.UserCases.V1.Queries.Product;
 public sealed class GetProductQueryHandler : IQueryHandler<GetProductQuery, GetProductResponse>

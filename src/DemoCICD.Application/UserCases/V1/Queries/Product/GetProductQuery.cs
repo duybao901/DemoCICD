@@ -1,4 +1,4 @@
-﻿using DemoCICD.Application.Abstractions;
+﻿using DemoCICD.Contract.Abstractions.Shared;
 
 namespace DemoCICD.Application.UserCases.V1.Queries.Product;
 public class GetProductQuery : IQuery<GetProductResponse>

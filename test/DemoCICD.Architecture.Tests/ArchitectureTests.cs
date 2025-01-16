@@ -1,4 +1,4 @@
-using DemoCICD.Application.Abstractions;
+using DemoCICD.Contract.Abstractions.Shared;
 using FluentAssertions;
 using NetArchTest.Rules;
 

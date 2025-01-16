@@ -1,5 +1,4 @@
-﻿namespace DemoCICD.Domain.Shared;
-
+﻿namespace DemoCICD.Contract.Abstractions.Shared;
 public class Result<TValue> : Result
 {
     private readonly TValue? _value;
