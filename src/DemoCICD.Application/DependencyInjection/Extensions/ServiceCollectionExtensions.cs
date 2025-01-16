@@ -1,4 +1,5 @@
 ﻿using DemoCICD.Application.Behaviors;
+using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -7,5 +8,6 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddConfigureMediatR(this IServiceCollection services)
      => services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(AssemblyReference.Assembly))
-        .AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationPipelineBehavior<,>));
+        .AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationPipelineBehavior<,>))
+        .AddValidatorsFromAssembly(Contract.AssemblyReference.assembly, includeInternalTypes: true);
 }
