@@ -13,11 +13,11 @@
   <ItemGroup>
     <Folder Include="DependencyInjection\Extensions\" />
     <Folder Include="DependencyInjection\Options\" />
-    <Folder Include="Behaviors\" />
     <Folder Include="UserCases\V2\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
     <PackageReference Include="MediatR" Version="12.4.1" />
   </ItemGroup>
 

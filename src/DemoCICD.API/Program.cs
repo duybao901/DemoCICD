@@ -1,11 +1,22 @@
+using DemoCICD.Application.Behaviors;
+using FluentValidation;
+using MediatR;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Add configuration
+builder.Services.AddMediatR(options => options.RegisterServicesFromAssembly(DemoCICD.Application.AssemblyReference.Assembly));
+builder.Services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationPipelineBehavior<,>));
+builder.Services.AddValidatorsFromAssembly(
+    DemoCICD.Application.AssemblyReference.Assembly,
+    includeInternalTypes: true);
 
 var app = builder.Build();
 
