@@ -1,6 +1,4 @@
-using DemoCICD.Application.Behaviors;
-using FluentValidation;
-using MediatR;
+using DemoCICD.Application.DependencyInjection.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,11 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Add configuration
-builder.Services.AddMediatR(options => options.RegisterServicesFromAssembly(DemoCICD.Application.AssemblyReference.Assembly));
-builder.Services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationPipelineBehavior<,>));
-builder.Services.AddValidatorsFromAssembly(
-    DemoCICD.Application.AssemblyReference.Assembly,
-    includeInternalTypes: true);
+builder.Services.AddConfigureMediatR();
 
 var app = builder.Build();
 
