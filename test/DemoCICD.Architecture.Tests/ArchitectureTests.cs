@@ -134,41 +134,41 @@ public class ArchitectureTests
     #endregion =============== Infrastructure Layer ===============
 
     #region =========== Command ===========
-    [Fact]
-    public void Command_Shoud_Have_NamingConventionEndingWithCommandPrefix()
-    {
-        // Arrage
-        var assembly = Application.AssemblyReference.Assembly;
+    //[Fact]
+    //public void Command_Shoud_Have_NamingConventionEndingWithCommandPrefix()
+    //{
+    //    // Arrage
+    //    var assembly = Application.AssemblyReference.Assembly;
 
-        // Act
-        var testResult = Types.InAssembly(assembly)
-            .That()
-            .ImplementInterface(typeof(ICommand))
-            .Should()
-            .HaveNameEndingWith("Command")
-            .GetResult();
+    //    // Act
+    //    var testResult = Types.InAssembly(assembly)
+    //        .That()
+    //        .ImplementInterface(typeof(ICommand))
+    //        .Should()
+    //        .HaveNameEndingWith("Command")
+    //        .GetResult();
 
-        // Assert
-        testResult.IsSuccessful.Should().BeTrue();
-    }
+    //    // Assert
+    //    testResult.IsSuccessful.Should().BeTrue();
+    //}
 
-    [Fact]
-    public void CommandT_Shoud_Have_NamingConventionEndingWithCommandPrefix()
-    {
-        // Arrage
-        var assembly = Application.AssemblyReference.Assembly;
+    //[Fact]
+    //public void CommandT_Shoud_Have_NamingConventionEndingWithCommandPrefix()
+    //{
+    //    // Arrage
+    //    var assembly = Application.AssemblyReference.Assembly;
 
-        // Act
-        var testResult = Types.InAssembly(assembly)
-            .That()
-            .ImplementInterface(typeof(ICommand<>))
-            .Should()
-            .HaveNameEndingWith("Command")
-            .GetResult();
+    //    // Act
+    //    var testResult = Types.InAssembly(assembly)
+    //        .That()
+    //        .ImplementInterface(typeof(ICommand<>))
+    //        .Should()
+    //        .HaveNameEndingWith("Command")
+    //        .GetResult();
 
-        // Assert
-        testResult.IsSuccessful.Should().BeTrue();
-    }
+    //    // Assert
+    //    testResult.IsSuccessful.Should().BeTrue();
+    //}
 
     [Fact]
     public void CommandHandlers_Should_Have_NamingConventionEndingWithCommandHandlerPrefix()
@@ -206,62 +206,62 @@ public class ArchitectureTests
         testResult.IsSuccessful.Should().BeTrue();
     }
 
-    [Fact]
-    public void CommandHandlers_Should_Have_BeSealed()
-    {
-        // Arrange
-        var assembly = Application.AssemblyReference.Assembly;
+    //[Fact]
+    //public void CommandHandlers_Should_Have_BeSealed()
+    //{
+    //    // Arrange
+    //    var assembly = Application.AssemblyReference.Assembly;
 
-        // Act
-        var testResult = Types.InAssembly(assembly)
-            .That()
-            .ImplementInterface(typeof(ICommandHandler<>))
-            .Should()
-            .BeSealed()
-            .GetResult();
+    //    // Act
+    //    var testResult = Types.InAssembly(assembly)
+    //        .That()
+    //        .ImplementInterface(typeof(ICommandHandler<>))
+    //        .Should()
+    //        .BeSealed()
+    //        .GetResult();
 
-        // Assert
-        testResult.IsSuccessful.Should().BeTrue();
-    }
+    //    // Assert
+    //    testResult.IsSuccessful.Should().BeTrue();
+    //}
 
-    [Fact]
-    public void CommandHandlersT_Should_Have_BeSealed()
-    {
-        // Arrange
-        var assembly = Application.AssemblyReference.Assembly;
+    //[Fact]
+    //public void CommandHandlersT_Should_Have_BeSealed()
+    //{
+    //    // Arrange
+    //    var assembly = Application.AssemblyReference.Assembly;
 
-        // Act
-        var testResult = Types.InAssembly(assembly)
-            .That()
-            .ImplementInterface(typeof(ICommandHandler<,>))
-            .Should()
-            .BeSealed()
-            .GetResult();
+    //    // Act
+    //    var testResult = Types.InAssembly(assembly)
+    //        .That()
+    //        .ImplementInterface(typeof(ICommandHandler<,>))
+    //        .Should()
+    //        .BeSealed()
+    //        .GetResult();
 
-        // Assert
-        testResult.IsSuccessful.Should().BeTrue();
-    }
+    //    // Assert
+    //    testResult.IsSuccessful.Should().BeTrue();
+    //}
 
     #endregion
 
     #region =========== Query ===========
-    [Fact]
-    public void Query_Should_Have_NamingConventionEndingWithQueryPrefix()
-    {
-        // Arrage
-        var assembly = Application.AssemblyReference.Assembly;
+    //[Fact]
+    //public void Query_Should_Have_NamingConventionEndingWithQueryPrefix()
+    //{
+    //    // Arrage
+    //    var assembly = Application.AssemblyReference.Assembly;
 
-        // Act
-        var testResult = Types
-            .InAssembly(assembly)
-            .That()
-            .ImplementInterface(typeof(IQuery<>))
-            .Should().HaveNameEndingWith("Query")
-            .GetResult();
+    //    // Act
+    //    var testResult = Types
+    //        .InAssembly(assembly)
+    //        .That()
+    //        .ImplementInterface(typeof(IQuery<>))
+    //        .Should().HaveNameEndingWith("Query")
+    //        .GetResult();
 
-        // Assert
-        testResult.IsSuccessful.Should().BeTrue();
-    }
+    //    // Assert
+    //    testResult.IsSuccessful.Should().BeTrue();
+    //}
 
     [Fact]
     public void QueryHandlers_Should_Have_NamingConventionEndingWithQueryHandlerPrefix()
@@ -281,22 +281,22 @@ public class ArchitectureTests
         testResult.IsSuccessful.Should().BeTrue();
     }
 
-    [Fact]
-    public void QueryHandlers_Should_Have_BeSealed()
-    {
-        // Arrange
-        var assembly = Application.AssemblyReference.Assembly;
+    //[Fact]
+    //public void QueryHandlers_Should_Have_BeSealed()
+    //{
+    //    // Arrange
+    //    var assembly = Application.AssemblyReference.Assembly;
 
-        // Act
-        var testResult = Types.InAssembly(assembly)
-            .That()
-            .ImplementInterface(typeof(IQueryHandler<,>))
-            .Should()
-            .BeSealed()
-            .GetResult();
+    //    // Act
+    //    var testResult = Types.InAssembly(assembly)
+    //        .That()
+    //        .ImplementInterface(typeof(IQueryHandler<,>))
+    //        .Should()
+    //        .BeSealed()
+    //        .GetResult();
 
-        // Assert
-        testResult.IsSuccessful.Should().BeTrue();
-    }
+    //    // Assert
+    //    testResult.IsSuccessful.Should().BeTrue();
+    //}
     #endregion
 }

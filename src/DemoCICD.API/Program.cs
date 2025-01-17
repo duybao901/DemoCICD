@@ -1,4 +1,6 @@
 using DemoCICD.Application.DependencyInjection.Extensions;
+using DemoCICD.Persistence.DependencyInjection.Extensions;
+using DemoCICD.Persistence.DependencyInjection.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,8 @@ builder.Services.AddSwaggerGen();
 
 // Add configuration
 builder.Services.AddConfigureMediatR();
+builder.Services.ConfigureSqlServerRetryOptions(builder.Configuration.GetSection(nameof(SqlServerRetryOptions)));
+builder.Services.AddSqlConfiguration();
 
 var app = builder.Build();
 
