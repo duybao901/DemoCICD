@@ -16,4 +16,8 @@
     <ProjectReference Include="..\DemoCICD.Infrastructure\DemoCICD.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\V1\" />
+  </ItemGroup>
+
 </Project>
