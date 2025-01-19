@@ -4,7 +4,7 @@ using static DemoCICD.Contract.Services.Product.Response;
 namespace DemoCICD.Contract.Services.Product;
 public static class Query
 {
-    public record getProductQuery() : IQuery<List<ProductResponse>>;
+    public record GetProductQuery() : IQuery<List<ProductResponse>>;
 
-    public record getProductById(Guid Id) : IQuery<ProductResponse>;
+    public record GetProductById(Guid Id) : IQuery<ProductResponse>;
 }

@@ -1,4 +1,5 @@
 ﻿using DemoCICD.Application.Behaviors;
+using DemoCICD.Application.Mapper;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,4 +11,7 @@ public static class ServiceCollectionExtensions
      => services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(AssemblyReference.Assembly))
         .AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationPipelineBehavior<,>))
         .AddValidatorsFromAssembly(Contract.AssemblyReference.assembly, includeInternalTypes: true);
+
+    public static IServiceCollection AddConfigureAutoMapper(this IServiceCollection services)
+        => services.AddAutoMapper(typeof(ServiceProfile));
 }

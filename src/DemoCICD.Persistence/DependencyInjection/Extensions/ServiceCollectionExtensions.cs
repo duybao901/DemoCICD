@@ -1,5 +1,8 @@
-﻿using DemoCICD.Domain.Entities.Identity;
+﻿using DemoCICD.Domain.Abstractions;
+using DemoCICD.Domain.Abstractions.Repositories;
+using DemoCICD.Domain.Entities.Identity;
 using DemoCICD.Persistence.DependencyInjection.Options;
+using DemoCICD.Persistence.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -52,11 +55,16 @@ public static class ServiceCollectionExtensions
         });
     }
 
+    public static void AddRepositoryBaseConfiguration(this IServiceCollection services)
+    {
+        services.AddTransient<IUnitOfWork, EFUnitOfWork>();
+        services.AddTransient(typeof(IRepositoryBase<,>), typeof(RepositoryBase<,>));
+    }
+
     public static OptionsBuilder<SqlServerRetryOptions> ConfigureSqlServerRetryOptions(this IServiceCollection services, IConfigurationSection section)
          => services
              .AddOptions<SqlServerRetryOptions>()
              .Bind(section)
              .ValidateDataAnnotations()
              .ValidateOnStart();
-
 }

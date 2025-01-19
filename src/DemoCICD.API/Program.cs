@@ -20,10 +20,22 @@ Log.Logger = new LoggerConfiguration()
 builder.Logging.ClearProviders().AddSerilog();
 builder.Host.UseSerilog();
 
+// Api
+builder.Services.AddControllers().AddApplicationPart(DemoCICD.Presentation.AssemblyReference.Assembly);
+builder.Services
+    .AddApiVersioning(options => options.ReportApiVersions = true)
+    .AddApiExplorer(options =>
+    {
+        options.GroupNameFormat = "'v'VVV";
+        options.SubstituteApiVersionInUrl = true;
+    });
+
 // Add configuration
 builder.Services.AddConfigureMediatR();
 builder.Services.ConfigureSqlServerRetryOptions(builder.Configuration.GetSection(nameof(SqlServerRetryOptions)));
 builder.Services.AddSqlConfiguration();
+builder.Services.AddRepositoryBaseConfiguration();
+builder.Services.AddConfigureAutoMapper();
 
 var app = builder.Build();
 

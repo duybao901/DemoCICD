@@ -14,10 +14,12 @@
   <ItemGroup>
     <Folder Include="Abstractions\" />
     <Folder Include="DependencyInjection\Options\" />
+    <Folder Include="UserCases\V1\Commands\Product\" />
     <Folder Include="UserCases\V2\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="FluentValidation" Version="11.11.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
     <PackageReference Include="MediatR" Version="12.4.1" />
