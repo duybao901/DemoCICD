@@ -9,12 +9,12 @@
   <ItemGroup>
     <ProjectReference Include="..\DemoCICD.Contract\DemoCICD.Contract.csproj" />
     <ProjectReference Include="..\DemoCICD.Domain\DemoCICD.Domain.csproj" />
+    <ProjectReference Include="..\DemoCICD.Persistence\DemoCICD.Persistence.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Abstractions\" />
     <Folder Include="DependencyInjection\Options\" />
-    <Folder Include="UserCases\V1\Commands\Product\" />
     <Folder Include="UserCases\V2\" />
   </ItemGroup>
 
