@@ -7,6 +7,7 @@ using DemoCICD.Contract.Abstractions.Shared;
 using DemoCICD.Contract.Services.Product;
 using DemoCICD.Domain.Abstractions;
 using DemoCICD.Domain.Abstractions.Repositories;
+using DemoCICD.Domain.Exceptions;
 
 namespace DemoCICD.Application.UserCases.V1.Commands.Product;
 public sealed class DeleteProductCommandHandler : ICommandHandler<Command.DeleteProduct>
@@ -22,7 +23,7 @@ public sealed class DeleteProductCommandHandler : ICommandHandler<Command.Delete
 
     public async Task<Result> Handle(Command.DeleteProduct request, CancellationToken cancellationToken)
     {
-        var product = await _productRepositoryBase.FindByIdAsync(request.Id) ?? throw new Exception("Product not found");
+        var product = await _productRepositoryBase.FindByIdAsync(request.Id) ?? throw new ProductException.ProductNotFoundException(request.Id);
 
         _productRepositoryBase.Remove(product);
         await _unitOfWork.SaveChangesAsync(cancellationToken);

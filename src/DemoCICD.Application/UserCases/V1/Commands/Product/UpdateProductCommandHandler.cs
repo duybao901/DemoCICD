@@ -7,6 +7,7 @@ using DemoCICD.Contract.Abstractions.Shared;
 using DemoCICD.Contract.Services.Product;
 using DemoCICD.Domain.Abstractions;
 using DemoCICD.Domain.Abstractions.Repositories;
+using DemoCICD.Domain.Exceptions;
 
 namespace DemoCICD.Application.UserCases.V1.Commands.Product;
 public sealed class UpdateProductCommandHandler : ICommandHandler<Command.UpdateProduct>
@@ -22,7 +23,7 @@ public sealed class UpdateProductCommandHandler : ICommandHandler<Command.Update
 
     public async Task<Result> Handle(Command.UpdateProduct request, CancellationToken cancellationToken)
     {
-        var product = await _productRepositoryBase.FindByIdAsync(request.Id) ?? throw new Exception("Product not found");
+        var product = await _productRepositoryBase.FindByIdAsync(request.Id) ?? throw new ProductException.ProductNotFoundException(request.Id);
 
         product.Update(request.Name, request.Price, request.Description);
 
