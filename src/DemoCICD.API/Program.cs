@@ -67,5 +67,3 @@ finally
     Log.CloseAndFlush();
     await app.DisposeAsync();
 }
-
-app.Run();
