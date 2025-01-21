@@ -1,6 +1,7 @@
 ﻿using Asp.Versioning;
 using DemoCICD.Contract.Abstractions.Shared;
 using DemoCICD.Contract.Enumerations;
+using DemoCICD.Contract.Extentions;
 using DemoCICD.Contract.Services.Product;
 using DemoCICD.Presentation.Abstractions;
 using MediatR;
@@ -22,14 +23,18 @@ public class ProductsController : ApiController
     public async Task<IActionResult> Products(
         string? searchTerm = null,
         string? sortColumn = null,
-        string? sortOrder = null)
+        string? sortOrder = null,
+        string? sortOrderAndColumn = null,
+        int pageIndex = 1,
+        int pageSize = 10)
     {
-        var sort = string.IsNullOrWhiteSpace(sortOrder)
-            ? SortOrder.Descending :
-            sortOrder.Equals("asc") ? SortOrder.Ascending : SortOrder.Descending;
-
-        // Decending on CreationDate column by default
-        var result = await Sender.Send(new Query.GetProductQuery(searchTerm, sortColumn, sort));
+        var result = await Sender.Send(new Query.GetProductQuery(
+            searchTerm,
+            sortColumn,
+            SortOrderExtension.ConvertStringToSortOrder(sortOrder),
+            SortOrderExtension.ConvertStringToSortOrderV2(sortOrderAndColumn),
+            pageIndex,
+            pageSize));
         return Ok(result);
     }
 
