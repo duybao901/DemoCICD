@@ -24,7 +24,7 @@ public class ProductsController : ApiController
         string? sortColumn = null,
         string? sortOrder = null)
     {
-        var sort = string.IsNullOrWhiteSpace(sortOrder) 
+        var sort = string.IsNullOrWhiteSpace(sortOrder)
             ? SortOrder.Descending :
             sortOrder.Equals("asc") ? SortOrder.Ascending : SortOrder.Descending;
 
