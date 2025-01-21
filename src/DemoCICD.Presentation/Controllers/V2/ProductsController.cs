@@ -15,12 +15,12 @@ public class ProductsController : ApiController
     {
     }
 
-    [HttpGet(Name = "GetProducts")]
-    [ProducesResponseType(typeof(Result<IEnumerable<Response.ProductResponse>>), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> Products()
-    {
-        var result = await Sender.Send(new Query.GetProductQuery());
-        return Ok(result);
-    }
+    //[HttpGet(Name = "GetProducts")]
+    //[ProducesResponseType(typeof(Result<IEnumerable<Response.ProductResponse>>), StatusCodes.Status200OK)]
+    //[ProducesResponseType(StatusCodes.Status404NotFound)]
+    //public async Task<IActionResult> Products()
+    //{
+    //    var result = await Sender.Send(new Query.GetProductQuery());
+    //    return Ok(result);
+    //}
 }

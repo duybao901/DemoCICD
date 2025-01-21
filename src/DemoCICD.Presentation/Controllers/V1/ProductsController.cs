@@ -1,10 +1,11 @@
-﻿using DemoCICD.Contract.Abstractions.Shared;
+﻿using Asp.Versioning;
+using DemoCICD.Contract.Abstractions.Shared;
+using DemoCICD.Contract.Enumerations;
 using DemoCICD.Contract.Services.Product;
 using DemoCICD.Presentation.Abstractions;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Asp.Versioning;
 
 namespace DemoCICD.Presentation.Controllers.V1;
 [ApiVersion(1)]
@@ -18,9 +19,17 @@ public class ProductsController : ApiController
     [HttpGet(Name = "GetProducts")]
     [ProducesResponseType(typeof(Result<IEnumerable<Response.ProductResponse>>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> Products()
+    public async Task<IActionResult> Products(
+        string? searchTerm = null,
+        string? sortColumn = null,
+        string? sortOrder = null)
     {
-        var result = await Sender.Send(new Query.GetProductQuery());
+        var sort = string.IsNullOrWhiteSpace(sortOrder) 
+            ? SortOrder.Descending :
+            sortOrder.Equals("asc") ? SortOrder.Ascending : SortOrder.Descending;
+
+        // Decending on CreationDate column by default
+        var result = await Sender.Send(new Query.GetProductQuery(searchTerm, sortColumn, sort));
         return Ok(result);
     }
 
@@ -59,7 +68,7 @@ public class ProductsController : ApiController
     }
 
     [HttpDelete("{productId}")]
-    public async Task<IActionResult> Prodducts(Guid productId, [FromBody] Command.DeleteProduct deleteProduct)
+    public async Task<IActionResult> Prodducts(Guid productId)
     {
         var deleteProductCommand = new Command.DeleteProduct(productId);
 

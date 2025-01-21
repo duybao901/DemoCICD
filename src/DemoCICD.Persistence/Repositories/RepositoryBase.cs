@@ -62,6 +62,7 @@ public class RepositoryBase<TEntity, Tkey> : IRepositoryBase<TEntity, Tkey>, IDi
 
     public void Update(TEntity entity)
     {
+        // Set the entity state to modified
         _context.Set<TEntity>().Update(entity);
     }
 }
