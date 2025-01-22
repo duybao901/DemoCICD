@@ -9,7 +9,7 @@ using DemoCICD.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace DemoCICD.Application.UserCases.V1.Queries.Product;
-public sealed class GetProductQueryHandler : IQueryHandler<Query.GetProductQuery, List<Response.ProductResponse>>
+public sealed class GetProductQueryHandler : IQueryHandler<Query.GetProductQuery, PageResult<Response.ProductResponse>>
 {
     private readonly IRepositoryBase<Domain.Entities.Product, Guid> _productRepositoryBase;
     private readonly IMapper _mapper;
@@ -22,7 +22,7 @@ public sealed class GetProductQueryHandler : IQueryHandler<Query.GetProductQuery
         _context = context;
     }
 
-    public async Task<Result<List<Response.ProductResponse>>> Handle(Query.GetProductQuery request, CancellationToken cancellationToken)
+    public async Task<Result<PageResult<Response.ProductResponse>>> Handle(Query.GetProductQuery request, CancellationToken cancellationToken)
     {
         if (request.SortColumnAndOrder.Any())
         {
@@ -44,31 +44,57 @@ public sealed class GetProductQueryHandler : IQueryHandler<Query.GetProductQuery
             // Remove the trailing comma and space
             productQuery.Length -= 2;
 
+            // Paging
+            int pageIndex = request.PageIndex <= 0 ? PageResult<Domain.Entities.Product>.DefaultPageIndex : request.PageIndex;
+            int pageSize = request.PageSize <= 0 ? PageResult<Domain.Entities.Product>.DefaultPageSize : request.PageSize;
+            if (request.PageSize > PageResult<Domain.Entities.Product>.UpperRangePageSize)
+            {
+                pageSize = PageResult<Domain.Entities.Product>.UpperRangePageSize;
+            }
+
+            productQuery.Append($" OFFSET {pageSize * (pageIndex - 1)} ROWS FETCH NEXT {pageSize} ROWS ONLY");
+
             var products = await _context.Products.FromSqlRaw(productQuery.ToString()).ToListAsync(cancellationToken);
-            var result = _mapper.Map<List<Response.ProductResponse>>(products);
+
+            int totalCount = await _context.Products.CountAsync(cancellationToken: cancellationToken);
+
+            var productPageResult = PageResult<Domain.Entities.Product>.Create(
+                products,
+                pageIndex,
+                pageSize,
+                totalCount);
+
+            var result = _mapper.Map<PageResult<Response.ProductResponse>>(productPageResult);
             return Result.Success(result);
         }
         else // Entity Framework
         {
-            var productQuery = string.IsNullOrEmpty(request.searchTerm) ?
+            IQueryable<Domain.Entities.Product> productQuery = string.IsNullOrEmpty(request.searchTerm) ?
                 _productRepositoryBase.FindAll() :
                 _productRepositoryBase.FindAll(x => x.Name.Contains(request.searchTerm) || x.Description.Contains(request.searchTerm));
 
-            Expression<Func<Domain.Entities.Product, object>> keySelector = request.SortColumn?.ToLower() switch
-            {
-                "name" => product => product.Name,
-                "description" => product => product.Description,
-                "price" => product => product.Price,
-                _ => product => product.Id // REAL: product => product.CreatedDate by default
-            };
-
             productQuery = request.SortOrder == SortOrder.Ascending ?
-                productQuery.OrderBy(keySelector) :
-                productQuery.OrderByDescending(keySelector);
+                productQuery.OrderBy(GetSortColumnProterty(request)) :
+                productQuery.OrderByDescending(GetSortColumnProterty(request));
 
-            var products = await productQuery.ToListAsync();
-            var result = _mapper.Map<List<Response.ProductResponse>>(products);
+            var products = await PageResult<Domain.Entities.Product>.CreateAsync(productQuery,
+            request.PageIndex,
+            request.PageSize);
+
+            var result = _mapper.Map<PageResult<Response.ProductResponse>>(products);
             return Result.Success(result);
         }
+    }
+
+    public static Expression<Func<Domain.Entities.Product, object>> GetSortColumnProterty(Query.GetProductQuery request)
+    {
+        return request.SortColumn?.ToLower() switch
+        {
+            "name" => product => product.Name,
+            "description" => product => product.Description,
+            "price" => product => product.Price,
+            _ => product => product.Id
+            // REAL: product => product.CreatedDate by default
+        };
     }
 }
