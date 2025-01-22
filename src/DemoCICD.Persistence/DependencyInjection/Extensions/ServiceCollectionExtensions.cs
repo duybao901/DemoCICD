@@ -19,6 +19,8 @@ public static class ServiceCollectionExtensions
             var configuration = provider.GetRequiredService<IConfiguration>();
             var options = provider.GetRequiredService<IOptionsMonitor<SqlServerRetryOptions>>();
 
+            #region ================= SQL-SERVER-STRATEGY-1 =================
+
             builder
             .EnableDetailedErrors(true)
             .EnableSensitiveDataLogging(true)
@@ -33,6 +35,21 @@ public static class ServiceCollectionExtensions
                                     maxRetryDelay: options.CurrentValue.MaxRetryDelay,
                                     errorNumbersToAdd: options.CurrentValue.ErrorNumbersToAdd))
                             .MigrationsAssembly(typeof(ApplicationDbContext).Assembly.GetName().Name));
+            #endregion ================= SQL-SERVER-STRATEGY-1 =================
+
+            #region ============== SQL-SERVER-STRATEGY-2 ==============
+
+            //builder
+            //.EnableDetailedErrors(true)
+            //.EnableSensitiveDataLogging(true)
+            //.UseLazyLoadingProxies(true) // => If UseLazyLoadingProxies, all of the navigation fields should be VIRTUAL
+            //.UseSqlServer(
+            //    connectionString: configuration.GetConnectionString("ConnectionStrings"),
+            //        sqlServerOptionsAction: optionsBuilder
+            //            => optionsBuilder
+            //            .MigrationsAssembly(typeof(ApplicationDbContext).Assembly.GetName().Name));
+
+            #endregion ============== SQL-SERVER-STRATEGY-2 ==============
 
         });
 
