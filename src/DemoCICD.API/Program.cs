@@ -4,6 +4,7 @@ using DemoCICD.API.DependencyInjection.Extensions;
 using DemoCICD.Persistence.DependencyInjection.Options;
 using Serilog;
 using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
+using DemoCICD.API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 // Log
@@ -16,6 +17,9 @@ builder.Host.UseSerilog();
 
 // Api
 builder.Services.AddControllers().AddApplicationPart(DemoCICD.Presentation.AssemblyReference.Assembly);
+
+// Middleware
+builder.Services.AddTransient<ExceptionHandlingMiddleware>();
 
 // Add configuration
 builder.Services.AddConfigureMediatR();
@@ -40,6 +44,8 @@ builder.Services
     });
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.UseHttpsRedirection();
 

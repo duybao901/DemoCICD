@@ -21,8 +21,10 @@ public sealed class ValidationPipelineBehavior<TRequest, TResponse> : IPipelineB
             return await next();
         }
 
+        var context = new ValidationContext<TRequest>(request);
+
         Error[] errors = _validators
-            .Select(validator => validator.Validate(request))
+            .Select(validator => validator.Validate(context))
             .SelectMany(validationResult => validationResult.Errors)
             .Where(validationFailure => validationFailure is not null)
             .Select(failure => new Error(
@@ -33,7 +35,8 @@ public sealed class ValidationPipelineBehavior<TRequest, TResponse> : IPipelineB
 
         if (errors.Any())
         {
-            return CreateValidationResult<TResponse>(errors);
+            var validationResult = CreateValidationResult<TResponse>(errors);
+            return validationResult;
         }
 
         return await next();
