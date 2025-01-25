@@ -87,6 +87,11 @@
             <mxPoint x="439.5" y="320" as="targetPoint" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="GfekT3qdt3rA7QXHot6K-27" value="Response" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GfekT3qdt3rA7QXHot6K-26">
+          <mxGeometry x="0.0559" y="6" relative="1" as="geometry">
+            <mxPoint x="6" as="offset" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
