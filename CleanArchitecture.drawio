@@ -125,10 +125,13 @@
         <mxCell id="GfekT3qdt3rA7QXHot6K-35" value="Persistence&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="130" y="650" width="90" height="40" as="geometry" />
         </mxCell>
+        <mxCell id="GfekT3qdt3rA7QXHot6K-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="GfekT3qdt3rA7QXHot6K-37" target="GfekT3qdt3rA7QXHot6K-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="GfekT3qdt3rA7QXHot6K-37" value="Domain Event&amp;nbsp;&lt;br&gt;(ProductCreated)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="30" y="520" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="GfekT3qdt3rA7QXHot6K-39" value="Domain Event&amp;nbsp;&lt;br&gt;(ProductCreated)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="GfekT3qdt3rA7QXHot6K-39" value="Domain Event Handler" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="30" y="430" width="120" height="40" as="geometry" />
         </mxCell>
       </root>
