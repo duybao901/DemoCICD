@@ -51,6 +51,15 @@
             <mxPoint x="439.5" y="520" as="targetPoint" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="GfekT3qdt3rA7QXHot6K-14" value="EntityFramework Repository" style="rounded=1;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="200" y="670" width="320" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GfekT3qdt3rA7QXHot6K-15" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="GfekT3qdt3rA7QXHot6K-2" target="GfekT3qdt3rA7QXHot6K-14">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="270" y="660" as="sourcePoint" />
+            <mxPoint x="320" y="610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
