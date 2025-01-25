@@ -61,18 +61,12 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="GfekT3qdt3rA7QXHot6K-22" value="SQL Server" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
-          <mxGeometry x="200" y="800" width="120" height="80" as="geometry" />
+          <mxGeometry x="200" y="800" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="GfekT3qdt3rA7QXHot6K-23" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.357;entryY=0.025;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="GfekT3qdt3rA7QXHot6K-22">
+        <mxCell id="GfekT3qdt3rA7QXHot6K-23" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;exitX=0.353;exitY=1.007;exitDx=0;exitDy=0;entryX=0.357;entryY=0.025;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="1" source="GfekT3qdt3rA7QXHot6K-19" target="GfekT3qdt3rA7QXHot6K-22">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="240" y="740" as="sourcePoint" />
             <mxPoint x="240" y="790" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="GfekT3qdt3rA7QXHot6K-25" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=0.621;entryY=0.98;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.855;exitY=0;exitDx=0;exitDy=4.35;exitPerimeter=0;" edge="1" parent="1" source="GfekT3qdt3rA7QXHot6K-22" target="GfekT3qdt3rA7QXHot6K-19">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="399" y="802" as="sourcePoint" />
-            <mxPoint x="240" y="650" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="GfekT3qdt3rA7QXHot6K-26" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=0.621;entryY=0.98;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="GfekT3qdt3rA7QXHot6K-2">
@@ -90,6 +84,12 @@
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="240" y="600" as="sourcePoint" />
             <mxPoint x="240" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GfekT3qdt3rA7QXHot6K-29" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="320" y="800" as="sourcePoint" />
+            <mxPoint x="320" y="740" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
