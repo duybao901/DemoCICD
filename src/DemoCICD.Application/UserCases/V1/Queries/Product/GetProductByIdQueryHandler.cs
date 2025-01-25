@@ -5,7 +5,7 @@ using DemoCICD.Domain.Abstractions.Repositories;
 using DemoCICD.Domain.Exceptions;
 
 namespace DemoCICD.Application.UserCases.V1.Queries.Product;
-public sealed class GetProductByIdQueryHandler : IQueryHandler<Query.GetProductById, Response.ProductResponse>
+public sealed class GetProductByIdQueryHandler : IQueryHandler<Query.GetProductByIdQuery, Response.ProductResponse>
 {
     private readonly IRepositoryBase<Domain.Entities.Product, Guid> _productRepositoryBase;
     private readonly IMapper _mapper;
@@ -16,7 +16,7 @@ public sealed class GetProductByIdQueryHandler : IQueryHandler<Query.GetProductB
         _mapper = mapper;
     }
 
-    public async Task<Result<Response.ProductResponse>> Handle(Query.GetProductById request, CancellationToken cancellationToken)
+    public async Task<Result<Response.ProductResponse>> Handle(Query.GetProductByIdQuery request, CancellationToken cancellationToken)
     {
         var item = await _productRepositoryBase.FindByIdAsync(request.Id) ?? throw new ProductException.ProductNotFoundException(request.Id);
         var result = _mapper.Map<Response.ProductResponse>(item);

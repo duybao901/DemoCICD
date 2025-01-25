@@ -3,9 +3,9 @@
 namespace DemoCICD.Contract.Services.Product;
 public static class Command
 {
-    public record CreateProduct(string Name, decimal Price, string Description) : ICommand;
+    public record CreateProductCommand(string Name, decimal Price, string Description) : ICommand;
 
-    public record UpdateProduct(Guid Id, string Name, decimal Price, string Description) : ICommand;
+    public record UpdateProductCommand(Guid Id, string Name, decimal Price, string Description) : ICommand;
 
-    public record DeleteProduct(Guid Id) : ICommand;
+    public record DeleteProductCommand(Guid Id) : ICommand;
 }

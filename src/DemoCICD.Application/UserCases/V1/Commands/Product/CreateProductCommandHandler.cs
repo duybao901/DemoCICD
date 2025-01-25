@@ -7,7 +7,7 @@ using DemoCICD.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace DemoCICD.Application.UserCases.V1.Commands.Product;
-public sealed class CreateProductCommandHandler : ICommandHandler<Command.CreateProduct>
+public sealed class CreateProductCommandHandler : ICommandHandler<Command.CreateProductCommand>
 {
     private readonly IRepositoryBase<Domain.Entities.Product, Guid> _productRepositoryBase;
     private readonly IMapper _mapper;
@@ -22,7 +22,7 @@ public sealed class CreateProductCommandHandler : ICommandHandler<Command.Create
         _context = context;
     }
 
-    public async Task<Result> Handle(Command.CreateProduct request, CancellationToken cancellationToken)
+    public async Task<Result> Handle(Command.CreateProductCommand request, CancellationToken cancellationToken)
     {
         var product = Domain.Entities.Product.CreateProduct(new Guid(), request.Name, request.Price, request.Description);
         _productRepositoryBase.Add(product);

@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 
 namespace DemoCICD.Contract.Services.Product.Validators;
-public class CreateProductValidator : AbstractValidator<Command.CreateProduct>
+public class CreateProductValidator : AbstractValidator<Command.CreateProductCommand>
 {
     public CreateProductValidator()
     {
