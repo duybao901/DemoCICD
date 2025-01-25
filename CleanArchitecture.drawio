@@ -61,9 +61,9 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="GfekT3qdt3rA7QXHot6K-22" value="SQL Server" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
-          <mxGeometry x="200" y="800" width="160" height="80" as="geometry" />
+          <mxGeometry x="200" y="800" width="320" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="GfekT3qdt3rA7QXHot6K-23" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;exitX=0.353;exitY=1.007;exitDx=0;exitDy=0;entryX=0.357;entryY=0.025;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="1" source="GfekT3qdt3rA7QXHot6K-19" target="GfekT3qdt3rA7QXHot6K-22">
+        <mxCell id="GfekT3qdt3rA7QXHot6K-23" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;exitX=0.353;exitY=1.007;exitDx=0;exitDy=0;entryX=0.181;entryY=0.045;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="1" source="GfekT3qdt3rA7QXHot6K-19" target="GfekT3qdt3rA7QXHot6K-22">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="240" y="740" as="sourcePoint" />
             <mxPoint x="240" y="790" as="targetPoint" />
@@ -88,8 +88,8 @@
         </mxCell>
         <mxCell id="GfekT3qdt3rA7QXHot6K-29" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="320" y="800" as="sourcePoint" />
-            <mxPoint x="320" y="740" as="targetPoint" />
+            <mxPoint x="310" y="800" as="sourcePoint" />
+            <mxPoint x="310" y="740" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="GfekT3qdt3rA7QXHot6K-30" value="Dapper Repository" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
