@@ -119,6 +119,9 @@
             <mxPoint x="472.44000000000005" y="560.0000000000001" as="targetPoint" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="GfekT3qdt3rA7QXHot6K-35" value="Persistence&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="130" y="650" width="90" height="40" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
