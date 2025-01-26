@@ -2,7 +2,7 @@
 using DemoCICD.Contract.Abstractions.Shared;
 using DemoCICD.Contract.Enumerations;
 using DemoCICD.Contract.Extentions;
-using DemoCICD.Contract.Services.Product;
+using DemoCICD.Contract.Services.V1.Product;
 using DemoCICD.Presentation.Abstractions;
 using MediatR;
 using Microsoft.AspNetCore.Http;

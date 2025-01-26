@@ -1,5 +1,5 @@
 ﻿using DemoCICD.Contract.Abstractions.Message;
-using DemoCICD.Contract.Services.Product;
+using DemoCICD.Contract.Services.V1.Product;
 
 namespace DemoCICD.Application.UserCases.V1.Events;
 public class SendEmailWhenProductChangeEventHandler :

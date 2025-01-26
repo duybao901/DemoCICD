@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using DemoCICD.Contract.Abstractions.Shared;
-using DemoCICD.Contract.Services.Product;
+using DemoCICD.Contract.Services.V1.Product;
 using DemoCICD.Domain.Abstractions;
 using DemoCICD.Domain.Abstractions.Repositories;
 using DemoCICD.Domain.Exceptions;

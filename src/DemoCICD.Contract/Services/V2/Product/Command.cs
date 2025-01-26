@@ -1,6 +1,6 @@
 ﻿using DemoCICD.Contract.Abstractions.Shared;
 
-namespace DemoCICD.Contract.Services.Product;
+namespace DemoCICD.Contract.Services.V2.Product;
 public static class Command
 {
     public record CreateProductCommand(string Name, decimal Price, string Description) : ICommand;
