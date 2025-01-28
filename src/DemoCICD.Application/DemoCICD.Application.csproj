@@ -19,7 +19,6 @@
   <ItemGroup>
     <Folder Include="Abstractions\" />
     <Folder Include="DependencyInjection\Options\" />
-    <Folder Include="UserCases\V2\" />
   </ItemGroup>
 
   <ItemGroup>
