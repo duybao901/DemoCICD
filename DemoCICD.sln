@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoCICD.Architecture.Tests
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoCICD.Contract", "src\DemoCICD.Contract\DemoCICD.Contract.csproj", "{580E534F-9977-417F-9C81-88C1793BE3C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoCICD.Infrastructure.Dapper", "src\DemoCICD.Infrastructure.Dapper\DemoCICD.Infrastructure.Dapper.csproj", "{06641E72-06B4-4A42-88D1-8F39D7F5E09D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{580E534F-9977-417F-9C81-88C1793BE3C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{580E534F-9977-417F-9C81-88C1793BE3C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{580E534F-9977-417F-9C81-88C1793BE3C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06641E72-06B4-4A42-88D1-8F39D7F5E09D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06641E72-06B4-4A42-88D1-8F39D7F5E09D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06641E72-06B4-4A42-88D1-8F39D7F5E09D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06641E72-06B4-4A42-88D1-8F39D7F5E09D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,5 +86,6 @@ Global
 		{C6FA092E-866E-4CE7-A571-229E9DD6B2EB} = {EFA0A703-5886-4AE9-8A5F-C12A49724BAD}
 		{67780AE4-910B-4139-AB28-56BDE2605370} = {7B48B6DD-AE48-432C-B096-FB6EAC256135}
 		{580E534F-9977-417F-9C81-88C1793BE3C2} = {EFA0A703-5886-4AE9-8A5F-C12A49724BAD}
+		{06641E72-06B4-4A42-88D1-8F39D7F5E09D} = {EFA0A703-5886-4AE9-8A5F-C12A49724BAD}
 	EndGlobalSection
 EndGlobal

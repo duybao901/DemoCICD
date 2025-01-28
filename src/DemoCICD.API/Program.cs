@@ -5,6 +5,7 @@ using DemoCICD.Persistence.DependencyInjection.Options;
 using Serilog;
 using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 using DemoCICD.API.Middleware;
+using DemoCICD.Infrastructure.Dapper.DependencyInjection.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 // Log
@@ -27,6 +28,9 @@ builder.Services.ConfigureSqlServerRetryOptions(builder.Configuration.GetSection
 builder.Services.AddSqlConfiguration();
 builder.Services.AddRepositoryBaseConfiguration();
 builder.Services.AddConfigureAutoMapper();
+
+// Config Dapper
+builder.Services.AddInfrastructureDapper();
 
 // Version
 builder.Services

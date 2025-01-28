@@ -30,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DemoCICD.Infrastructure.Dapper\DemoCICD.Infrastructure.Dapper.csproj" />
     <ProjectReference Include="..\DemoCICD.Persistence\DemoCICD.Persistence.csproj" />
     <ProjectReference Include="..\DemoCICD.Application\DemoCICD.Application.csproj" />
     <ProjectReference Include="..\DemoCICD.Infrastructure\DemoCICD.Infrastructure.csproj" />
