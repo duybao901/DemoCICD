@@ -6,6 +6,8 @@ using Serilog;
 using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 using DemoCICD.API.Middleware;
 using DemoCICD.Infrastructure.Dapper.DependencyInjection.Extensions;
+using DemoCICD.Presentation.Endpoints.Products;
+using Carter;
 
 var builder = WebApplication.CreateBuilder(args);
 // Log
@@ -29,6 +31,12 @@ builder.Services.AddSqlConfiguration();
 builder.Services.AddRepositoryBaseConfiguration();
 builder.Services.AddConfigureAutoMapper();
 
+// Api Minimal
+builder.Services.AddSingleton<ProductApi>();
+
+// Add Carter
+builder.Services.AddCarter();
+
 // Config Dapper
 builder.Services.AddInfrastructureDapper();
 
@@ -50,6 +58,15 @@ builder.Services
 var app = builder.Build();
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();
+
+// Add Minial API Endpoint
+// app.NewVersionedApi("product-minial-show-on-swagger").MapProductApiV1().MapProductApiV2();
+var versionedApi = app.NewVersionedApi();
+var apiV1 = app.Services.GetRequiredService<ProductApi>();
+apiV1.MapProductApiV1(versionedApi);
+
+// Add API Endpoint with carter module
+app.MapCarter();
 
 app.UseHttpsRedirection();
 
